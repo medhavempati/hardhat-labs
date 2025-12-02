@@ -18,7 +18,3 @@
 
 # Hardhat coverage reports
 /coverage
-
-# Environment files
-.env 
-.env.local
