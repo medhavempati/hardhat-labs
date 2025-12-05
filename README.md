@@ -1,12 +1,12 @@
 # Beginner Hardhat 3 Tutorial
 
 ### Installation & Setup
-npm init -y                                                     // Initialize a new node.js project. 
-npm install --save-dev hardhat                                  // Install hardhat and development dependencies. 
-npm install --save-dev @nomicfoundation/hardhat-toolbox         // Install hardhat toolbox. 
-npm install --save-dev hardhat-ethers ethers                    // Install ethers + Hardhat ethers adapter. 
-npm install --save-dev typescript ts-node                       // Install typescript + runtime. 
-npx hardhat                                                     // Initializes and generates the project structure. 
+npm init -y                                                     // Initialize a new node.js project.  
+npm install --save-dev hardhat                                  // Install hardhat and development dependencies.  
+npm install --save-dev @nomicfoundation/hardhat-toolbox         // Install hardhat toolbox.  
+npm install --save-dev hardhat-ethers ethers                    // Install ethers + Hardhat ethers adapter.  
+npm install --save-dev typescript ts-node                       // Install typescript + runtime.  
+npx hardhat                                                     // Initializes and generates the project structure.  
 
 (OR)
 
@@ -65,31 +65,33 @@ This defines the project's name, dependencies and command line shortcut scripts.
     This is the main configuration for Hardhat and contains the solidity version, network configurations, plugins, environment variables, etc.
 
 ### Deployment to Local Network
+1. Compile  
 Command: npx hardhat compile  
     Expected result:  
     Hardhat shows which contracts were compiled  
     This produces the /artifacts and /cache folders  
 
-[In a separate terminal session] Run local simulated network  
+[In a separate terminal session]  
+2. Run local simulated network  
 Command: npx hardhat node  
     Expected result:  
     Lists 20 auto-generated (fake)addresses and their private keys  
     The local blockchain runs at http://127.0.0.1:8545  
 
 [Back in original terminal session]  
-Deploy the contract  
+3. Deploy the contract  
 Command: npx hardhat ignition deploy ./ignition/modules/YourContractModule.ts --network localhost  
     Expected result: Deploys your contract and displays the address of the contract (yourContractAddress)  
 
-Run the console
-Command: npx hardhat console --network localhost 
+4. Run the console  
+Command: npx hardhat console --network localhost  
 
-Import hardhat ethers:
-    > const { network } = await import("hardhat");
-    > const { ethers } = await network.connect();
+5. Import hardhat ethers  
+    > const { network } = await import("hardhat");  
+    > const { ethers } = await network.connect();  
 
-Connect to the deployed contract:    
-    > const contractVariable = await ethers.getContractAt("YourContract", "[yourContractAddress]");
+6. Connect to the deployed contract  
+    > const contractVariable = await ethers.getContractAt("YourContract", "[yourContractAddress]");  
 
 ### Interact with Contract through console
 Read operations
