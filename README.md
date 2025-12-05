@@ -13,7 +13,7 @@ npx hardhat                                                     // Initializes a
 npm init -y && npm install --save-dev hardhat @nomicfoundation/hardhat-toolbox hardhat-ethers ethers typescript ts-node
 
 ### Files & Requirements
-Typical File Structure:  
+
 /artifacts  
 This is where the build output metadata is stored.  
 Safe to delete | Auto-generated | Do not need to commit to git. 
@@ -29,9 +29,9 @@ Example: YourContract.sol.
 /ignition  
 This is Hardhat 3's deployment system.  
 
-/ignition/deployments
-Deployed addresses, deployment state etc. is stored here. 
-Safe to delete | Auto-generated | DO NOT commit (may contain sensitive data)
+/ignition/deployments  
+Deployed addresses, deployment state etc. is stored here.  
+Safe to delete | Auto-generated | DO NOT commit (may contain sensitive data)  
 
 /ignition/modules  
 Deployment scripts are defined here.
@@ -65,23 +65,23 @@ This defines the project's name, dependencies and command line shortcut scripts.
     This is the main configuration for Hardhat and contains the solidity version, network configurations, plugins, environment variables, etc.
 
 ### Deployment to Local Network
+
 1. Compile  
 Command: npx hardhat compile  
     Expected result:  
     Hardhat shows which contracts were compiled  
     This produces the /artifacts and /cache folders  
 
-[In a separate terminal session]  
-2. Run local simulated network  
+2. Run local simulated network  [In a separate terminal session]  
 Command: npx hardhat node  
     Expected result:  
     Lists 20 auto-generated (fake)addresses and their private keys  
     The local blockchain runs at http://127.0.0.1:8545  
 
-[Back in original terminal session]  
-3. Deploy the contract  
+3. Deploy the contract  [Back in original terminal session]  
 Command: npx hardhat ignition deploy ./ignition/modules/YourContractModule.ts --network localhost  
-    Expected result: Deploys your contract and displays the address of the contract (yourContractAddress)  
+    Expected result:  
+    Deploys your contract and displays the address of the contract (yourContractAddress)  
 
 4. Run the console  
 Command: npx hardhat console --network localhost  
