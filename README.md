@@ -101,5 +101,16 @@ Write operations
     > const tx = await contractVariable.writeFunction(inputValue);  
     > await tx.wait();  
 
+Check which account you are using to complete the transactions  
+    > const signers = await ethers.getSigners();  
+    > signer = signers[0];  
+    > signer.address;  
+
+Check the balance of the account  
+    > const balance = await ethers.provider.getBalance(signer.address);  
+    > balance;  
+
+Note: Will observe account balance reducing after completing write or state-changing operations.  
+
 ## Simple Storage Contract
 

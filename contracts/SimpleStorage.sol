@@ -10,12 +10,23 @@ contract SimpleStorage {
     // Uint default gets initialized to 0
     uint256 favoriteNumber;
 
+    struct Person {
+        uint256 favoriteNumber;
+        string name;
+    }
+
+    Person[] public people;
+
     function simpleStore(uint256 _favoriteNumber) public {
         favoriteNumber = _favoriteNumber;
     }
 
     function retrieve() public view returns (uint256) {
         return favoriteNumber;
+    }
+
+    function addPerson(uint256 _favoriteNumber, string memory _name) public {
+        people.push(Person(_favoriteNumber, _name));
     }
 }
 
