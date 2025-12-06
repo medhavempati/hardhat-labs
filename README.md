@@ -94,9 +94,12 @@ Command: npx hardhat console --network localhost
     > const contractVariable = await ethers.getContractAt("YourContract", "[yourContractAddress]");  
 
 ### Interact with Contract through console
-Read operations
+Read operations  
+    > (await contractVariable.readFunction()).toString();  
 
-Write operations
+Write operations  
+    > const tx = await contractVariable.writeFunction(inputValue);  
+    > await tx.wait();  
 
 ## Simple Storage Contract
 
