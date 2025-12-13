@@ -70,14 +70,16 @@ External functions are more restricted. Cheaper to call externally, more expensi
 
 Value Type | Reference Type | Special Type
 
-Note: 
+### Variable Initialization Rules
+    - All state variables default to the 0 value.
+    - Value type local variables must also be assigned (do not default to 0) upon initialization.
+    - Reference type local variables must be assigned a value. 
+    If storage, must reference and existing storage location
+    If memory, must be assigned a value at declaration
+    - Reference type input parameters must specify memory or calldata.
 
-- All state variables default to the 0 value.
-- Value type local variables must also be assigned (do not default to 0) upon initialization.
-- Reference type local variables must be assigned a value. 
-If storage, must reference and existing storage location
-If memory, must be assigned a value at declaration
-- Reference type input parameters must specify memory or calldata.
+    Note:
+    Local value type variables live on the stack.
 
 Boolean:
 True or false value
@@ -241,3 +243,5 @@ modifier onlyOwner() {
 }
 
 function withdraw() public onlyOwner nonReentrant {}
+
+## EVM Execution Flow
